@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SQReorderableStackView_Example' do
+  pod 'SQReorderableStackView', :path => '../'
+
+  target 'SQReorderableStackView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
