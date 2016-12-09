@@ -33,7 +33,7 @@ public protocol SQReorderableStackViewDelegate {
     @objc optional func shouldAllowSubview(_ subview: UIView, toMoveToIndex index: Int) -> Bool
 }
 
-class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
+public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     var reorderingEnabled = false {
         didSet {
@@ -54,14 +54,14 @@ class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     fileprivate var startIndex: Int!
     fileprivate var endIndex: Int!
     
-    var clipsToBoundsWhileReordering = false
-    var cornerRadii: CGFloat = 0
-    var temporaryViewScale: CGFloat = 1.1
-    var otherViewsScale: CGFloat = 0.95
-    var temporaryViewAlpha: CGFloat = 0.9
+    public var clipsToBoundsWhileReordering = false
+    public var cornerRadii: CGFloat = 0
+    public var temporaryViewScale: CGFloat = 1.1
+    public var otherViewsScale: CGFloat = 0.95
+    public var temporaryViewAlpha: CGFloat = 0.9
     /// The gap created once the long press drag is triggered
-    var dragHintSpacing: CGFloat = 5
-    var longPressMinimumPressDuration = 0.2 {
+    public var dragHintSpacing: CGFloat = 5
+    public var longPressMinimumPressDuration = 0.2 {
         didSet {
             self.updateMinimumPressDuration()
         }
@@ -326,7 +326,7 @@ class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
 }
 
-extension UIGestureRecognizer {
+fileprivate extension UIGestureRecognizer {
     func cancel() {
         isEnabled = false
         isEnabled = true
