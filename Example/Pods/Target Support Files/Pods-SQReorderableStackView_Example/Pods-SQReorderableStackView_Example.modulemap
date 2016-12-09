@@ -1,0 +1,6 @@
+framework module Pods_SQReorderableStackView_Example {
+  umbrella header "Pods-SQReorderableStackView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

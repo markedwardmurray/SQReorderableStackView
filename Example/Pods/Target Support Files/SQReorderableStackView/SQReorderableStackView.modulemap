@@ -1,0 +1,6 @@
+framework module SQReorderableStackView {
+  umbrella header "SQReorderableStackView-umbrella.h"
+
+  export *
+  module * { export * }
+}

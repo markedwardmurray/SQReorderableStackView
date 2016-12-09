@@ -1,0 +1,16 @@
+PODS:
+  - SQReorderableStackView (0.1.0)
+
+DEPENDENCIES:
+  - SQReorderableStackView (from `../`)
+
+EXTERNAL SOURCES:
+  SQReorderableStackView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SQReorderableStackView: b0b1b877f9c75d8b191df506836a4c67b4c2f58f
+
+PODFILE CHECKSUM: 1f456c44c188a772893c875d65c81c3e0440f9c8
+
+COCOAPODS: 1.1.1
