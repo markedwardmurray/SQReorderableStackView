@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		278A6272EAD45688C75AD67460B95BA5 /* SQReorderableStackView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A65615EE670E6407DD7F7F65E8FE34F /* SQReorderableStackView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3CF8FCFA5E47BF2B6C089C6EA19D784B /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAA4118264FB208F0DD795FFD947D8 /* ReplaceMe.swift */; };
+		4D7532751DFB259600B6B080 /* SQReorderableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */; };
 		5AADEA65D6CC921C0FF15EAAF097ECB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		68CA7B66C49F8116A6253FF04A1B43B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		96F98F7BC4DBDF2D93743C2FD0800C2A /* Pods-SQReorderableStackView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 385C70C049A913675894F5F08586085E /* Pods-SQReorderableStackView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +41,7 @@
 		3C7420A31EA714D5FBD817D10A3892C9 /* Pods-SQReorderableStackView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SQReorderableStackView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3D961D2BDD947FF0A87045676B8C5964 /* Pods_SQReorderableStackView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQReorderableStackView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		452E9A0C114CEB52EAB8B5877B2BE9EC /* Pods-SQReorderableStackView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SQReorderableStackView_Example-resources.sh"; sourceTree = "<group>"; };
+		4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQReorderableStackView.swift; sourceTree = "<group>"; };
 		536B9A70BBC19BAC0B92444BA81B667C /* Pods-SQReorderableStackView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SQReorderableStackView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5A65615EE670E6407DD7F7F65E8FE34F /* SQReorderableStackView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQReorderableStackView-umbrella.h"; sourceTree = "<group>"; };
 		65DDE654FA6D46B4EC70DD3EBE245BED /* SQReorderableStackView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SQReorderableStackView.modulemap; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		BAC6D0E3AB9AFFC6C6F4975AB52B78DC /* Pods-SQReorderableStackView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SQReorderableStackView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDEF77AED7C8632155981CA22AE4C471 /* Pods-SQReorderableStackView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SQReorderableStackView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CEFAA4118264FB208F0DD795FFD947D8 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		CF5C6767E2B252A18AC9138DCE7AAFFA /* SQReorderableStackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQReorderableStackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B89C7F9F566667BA75EF9BB1C9A28B /* Pods-SQReorderableStackView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SQReorderableStackView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D891DE4D1554EAFEE468A129D14193F0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		AE54A75B61BCC6F39F6D75A94BEC6DA5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CEFAA4118264FB208F0DD795FFD947D8 /* ReplaceMe.swift */,
+				4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -346,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75105BE5F46A45D9C9AE54795033FF6 /* Pods-SQReorderableStackView_Example-dummy.m in Sources */,
+				4D7532751DFB259600B6B080 /* SQReorderableStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CF8FCFA5E47BF2B6C089C6EA19D784B /* ReplaceMe.swift in Sources */,
 				E31786E535B53F37211729A4F3CBFD91 /* SQReorderableStackView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B84E81BE1484F1B17047798C25585AE4 /* Pods-SQReorderableStackView_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -637,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69B7FDCDC050881371E09ED2C1CBCBD7 /* Pods-SQReorderableStackView_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
