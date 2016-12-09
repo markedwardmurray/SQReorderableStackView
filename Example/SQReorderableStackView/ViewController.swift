@@ -30,7 +30,7 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func stackView(stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool {
+    func stackView(_ stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool {
         if (stackView == self.horizontalStackView) {
             if index == 2 {
                 return false
@@ -39,7 +39,7 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
         return true
     }
 
-    func stackView(stackView: SQReorderableStackView, shouldAllowSubview subview: UIView, toMoveToIndex index: Int) -> Bool {
+    func stackView(_ stackView: SQReorderableStackView, shouldAllowSubview subview: UIView, toMoveToIndex index: Int) -> Bool {
         if (stackView == self.horizontalStackView) {
             if index == 2 {
                 return false
@@ -48,7 +48,7 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
         return true
     }
 
-    func stackView(stackView: SQReorderableStackView, didReorderArrangedSubviews arrangedSubviews: Array<UIView>) {
+    func stackViewDidReorderArrangedSubviews(_ stackView: SQReorderableStackView) {
         if stackView == self.verticalStackView {
             self.updateLabelText()
         }

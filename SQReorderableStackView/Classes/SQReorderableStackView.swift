@@ -14,26 +14,26 @@ import UIKit
 public protocol SQReorderableStackViewDelegate {
     
     /// called when a subview is "picked up" by the user
-    @objc optional func stackViewDidBeginReordering(stackView: SQReorderableStackView)
+    @objc optional func stackViewDidBeginReordering(_ stackView: SQReorderableStackView)
     
     /// Whenever a user drags a subview for a reordering, the delegate is told whether the direction
     /// was forward (left/down) or backward (right/up), as well as what the max and min X or Y values are of the subview
-    @objc optional func stackView(stackView: SQReorderableStackView, didDragToReorderInForwardDirection forward: Bool, maxPoint: CGPoint, minPoint: CGPoint)
+    @objc optional func stackView(_ stackView: SQReorderableStackView, didDragToReorderInForwardDirection forward: Bool, maxPoint: CGPoint, minPoint: CGPoint)
     
     /// didReorderArrangedSubviews - called when reordering ends only if the selected subview's index changed during reordering
-    @objc optional func stackView(stackView: SQReorderableStackView, didReorderArrangedSubviews arrangedSubviews: Array<UIView>)
+    @objc optional func stackViewDidReorderArrangedSubviews(_ stackView: SQReorderableStackView)
     
     /// didEndReordering - called when reordering ends
-    @objc optional func stackViewDidEndReordering(stackView: SQReorderableStackView)
+    @objc optional func stackViewDidEndReordering(_ stackView: SQReorderableStackView)
     
     /// called when reordering is cancelled
-    @objc optional func stackViewDidCancelReordering(stackView: SQReorderableStackView)
+    @objc optional func stackViewDidCancelReordering(_ stackView: SQReorderableStackView)
     
     /// Tells the ReorderableStackView whether or not the pressed subview may be picked up.
-    @objc optional func stackView(stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool
+    @objc optional func stackView(_ stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool
     
     /// Tells the ReorderableStackView whether or not the held subview can take the spot at which is being held.
-    @objc optional func stackView(stackView: SQReorderableStackView, shouldAllowSubview subview: UIView, toMoveToIndex index: Int) -> Bool
+    @objc optional func stackView(_ stackView: SQReorderableStackView, shouldAllowSubview subview: UIView, toMoveToIndex index: Int) -> Bool
 }
 
 public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
@@ -129,7 +129,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             self.actualView = gr.view!
             self.startIndex = self.indexOfArrangedSubview(self.actualView)
             
-            if let canReorder = self.reorderDelegate?.stackView?(stackView: self, canReorderSubview: self.actualView, atIndex: self.startIndex) {
+            if let canReorder = self.reorderDelegate?.stackView?(self, canReorderSubview: self.actualView, atIndex: self.startIndex) {
                 if (canReorder == false) {
                     self.finalReorderFrame = self.actualView.frame;
                     gr.cancel()
@@ -138,7 +138,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             }
             
             self.reordering = true
-            self.reorderDelegate?.stackViewDidBeginReordering?(stackView: self)
+            self.reorderDelegate?.stackViewDidBeginReordering?(self)
             
             self.cornerRadii = actualView.layer.cornerRadius
             self.originalPosition = gr.location(in: self)
@@ -171,13 +171,13 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             if midXorY > floatForReordering {
                 // Dragging the view left
                 let nextIndex = index + 1
-                if let moveAllowed = self.reorderDelegate?.stackView?(stackView: self, shouldAllowSubview: self.actualView, toMoveToIndex: nextIndex) {
+                if let moveAllowed = self.reorderDelegate?.stackView?(self, shouldAllowSubview: self.actualView, toMoveToIndex: nextIndex) {
                     if (moveAllowed == false) {
                         return
                     }
                 }
                 
-                self.reorderDelegate?.stackView?(stackView: self, didDragToReorderInForwardDirection: false, maxPoint: maxPoint, minPoint: minPoint)
+                self.reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: false, maxPoint: maxPoint, minPoint: minPoint)
                 
                 if let nextView = self.getNextViewInStack(usingIndex: index) {
                     let nextViewFrameMidXorY = self.isHorizontal ? nextView.frame.midX : nextView.frame.midY
@@ -201,13 +201,13 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             } else {
                 // Dragging the view right
                 let previousIndex = index - 1
-                if let moveAllowed = self.reorderDelegate?.stackView?(stackView: self, shouldAllowSubview: self.actualView, toMoveToIndex: previousIndex) {
+                if let moveAllowed = self.reorderDelegate?.stackView?(self, shouldAllowSubview: self.actualView, toMoveToIndex: previousIndex) {
                     if (!moveAllowed) {
                         return
                     }
                 }
                 
-                self.reorderDelegate?.stackView?(stackView: self, didDragToReorderInForwardDirection: true, maxPoint: maxPoint, minPoint: minPoint)
+                self.reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: true, maxPoint: maxPoint, minPoint: minPoint)
                 
                 if let previousView = self.getPreviousViewInStack(usingIndex: index) {
                     let previousViewFrameMidXorY = self.isHorizontal ? previousView.frame.midX : previousView.frame.midY
@@ -235,12 +235,12 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             self.reordering = false
             self.endIndex = self.indexOfArrangedSubview(self.actualView)
             if self.startIndex != self.endIndex {
-                self.reorderDelegate?.stackView?(stackView: self, didReorderArrangedSubviews: self.arrangedSubviews)
+                self.reorderDelegate?.stackViewDidReorderArrangedSubviews?(self)
             }
-            self.reorderDelegate?.stackViewDidEndReordering?(stackView: self)
+            self.reorderDelegate?.stackViewDidEndReordering?(self)
             
         } else if gr.state == .cancelled {
-            self.reorderDelegate?.stackViewDidCancelReordering?(stackView: self)
+            self.reorderDelegate?.stackViewDidCancelReordering?(self)
         }
         
     }
