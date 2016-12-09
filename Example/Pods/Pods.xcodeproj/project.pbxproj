@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		278A6272EAD45688C75AD67460B95BA5 /* SQReorderableStackView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A65615EE670E6407DD7F7F65E8FE34F /* SQReorderableStackView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D7532751DFB259600B6B080 /* SQReorderableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */; };
+		49254AAE2863EB06F639FD0E3EE7A5BB /* SQReorderableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBE949E1189562E89529B90FA38490 /* SQReorderableStackView.swift */; };
+		513A51447AC30403AF07D0FA1D41693F /* SQReorderableStackView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7840D4DCDAC579F3A4039965DCA77A5 /* SQReorderableStackView-dummy.m */; };
 		5AADEA65D6CC921C0FF15EAAF097ECB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		68CA7B66C49F8116A6253FF04A1B43B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		96F98F7BC4DBDF2D93743C2FD0800C2A /* Pods-SQReorderableStackView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 385C70C049A913675894F5F08586085E /* Pods-SQReorderableStackView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B720B112B1350C4AB703ED1F90409A53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		D2AE3A422E91261C33802E06F106BB0F /* Pods-SQReorderableStackView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD88F5E7AEA21C32FAF40BA3FDBD7CB4 /* Pods-SQReorderableStackView_Tests-dummy.m */; };
 		DBBADB5C21521E233B1535788BA67EF5 /* Pods-SQReorderableStackView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED512F934DA14E6436EFD898CAAC1EC /* Pods-SQReorderableStackView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E31786E535B53F37211729A4F3CBFD91 /* SQReorderableStackView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7840D4DCDAC579F3A4039965DCA77A5 /* SQReorderableStackView-dummy.m */; };
 		E75105BE5F46A45D9C9AE54795033FF6 /* Pods-SQReorderableStackView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C1B1C68C8C3BFD5256BE1685E0789 /* Pods-SQReorderableStackView_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,6 @@
 		3C7420A31EA714D5FBD817D10A3892C9 /* Pods-SQReorderableStackView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SQReorderableStackView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3D961D2BDD947FF0A87045676B8C5964 /* Pods_SQReorderableStackView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQReorderableStackView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		452E9A0C114CEB52EAB8B5877B2BE9EC /* Pods-SQReorderableStackView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SQReorderableStackView_Example-resources.sh"; sourceTree = "<group>"; };
-		4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQReorderableStackView.swift; sourceTree = "<group>"; };
 		536B9A70BBC19BAC0B92444BA81B667C /* Pods-SQReorderableStackView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SQReorderableStackView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5A65615EE670E6407DD7F7F65E8FE34F /* SQReorderableStackView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQReorderableStackView-umbrella.h"; sourceTree = "<group>"; };
 		65DDE654FA6D46B4EC70DD3EBE245BED /* SQReorderableStackView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SQReorderableStackView.modulemap; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		75FC5CE619F35F713A4F63B0695F670E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9425374BE21A1E480E701786543D404A /* Pods-SQReorderableStackView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SQReorderableStackView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		98EBE949E1189562E89529B90FA38490 /* SQReorderableStackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SQReorderableStackView.swift; sourceTree = "<group>"; };
 		AD88F5E7AEA21C32FAF40BA3FDBD7CB4 /* Pods-SQReorderableStackView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SQReorderableStackView_Tests-dummy.m"; sourceTree = "<group>"; };
 		B28C1B1C68C8C3BFD5256BE1685E0789 /* Pods-SQReorderableStackView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SQReorderableStackView_Example-dummy.m"; sourceTree = "<group>"; };
 		B7840D4DCDAC579F3A4039965DCA77A5 /* SQReorderableStackView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SQReorderableStackView-dummy.m"; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		550F8E031F35F1EC6FFD9E94911C3D4E /* SQReorderableStackView */ = {
 			isa = PBXGroup;
 			children = (
-				AE54A75B61BCC6F39F6D75A94BEC6DA5 /* Classes */,
+				B193E1900EF75486EF0D2DF3E4B0DC23 /* Classes */,
 			);
 			path = SQReorderableStackView;
 			sourceTree = "<group>";
@@ -170,10 +170,10 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		AE54A75B61BCC6F39F6D75A94BEC6DA5 /* Classes */ = {
+		B193E1900EF75486EF0D2DF3E4B0DC23 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4D7532741DFB259600B6B080 /* SQReorderableStackView.swift */,
+				98EBE949E1189562E89529B90FA38490 /* SQReorderableStackView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49ADB4979022C36A9F10750A76A816EA /* Build configuration list for PBXNativeTarget "SQReorderableStackView" */;
 			buildPhases = (
-				A79DB87E0E729348352F4763A10AE5AA /* Sources */,
+				8ECB5C7EB8A705FD0EB6E7E6E39AAFC1 /* Sources */,
 				4AF617991F76514DE4A5C5D4438FE463 /* Frameworks */,
 				C5B3EB485183CAFA756E7A72BDC1E09E /* Headers */,
 			);
@@ -312,14 +312,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					060C7E4DBCE4385119AD203B7FC5271C = {
-						LastSwiftMigration = 0810;
-					};
-					28B679D34F71480D964A8CBC38E1A156 = {
-						LastSwiftMigration = 0810;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -346,15 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75105BE5F46A45D9C9AE54795033FF6 /* Pods-SQReorderableStackView_Example-dummy.m in Sources */,
-				4D7532751DFB259600B6B080 /* SQReorderableStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A79DB87E0E729348352F4763A10AE5AA /* Sources */ = {
+		8ECB5C7EB8A705FD0EB6E7E6E39AAFC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31786E535B53F37211729A4F3CBFD91 /* SQReorderableStackView-dummy.m in Sources */,
+				513A51447AC30403AF07D0FA1D41693F /* SQReorderableStackView-dummy.m in Sources */,
+				49254AAE2863EB06F639FD0E3EE7A5BB /* SQReorderableStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,11 +370,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4303101141AEE00949528903432BB7D7 /* Release */ = {
+		0756C29C24FAC565724FA4339FE1C7A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B84E81BE1484F1B17047798C25585AE4 /* Pods-SQReorderableStackView_Example.release.xcconfig */;
+			baseConfigurationReference = 3C7420A31EA714D5FBD817D10A3892C9 /* Pods-SQReorderableStackView_Tests.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -394,13 +385,48 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Pods-SQReorderableStackView_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SQReorderableStackView_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		11E5F535669586842760FC1C156EE4B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69B7FDCDC050881371E09ED2C1CBCBD7 /* Pods-SQReorderableStackView_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Pods-SQReorderableStackView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -408,14 +434,14 @@
 				PRODUCT_NAME = Pods_SQReorderableStackView_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		5D641D928E94BAF77F9A5E5EA50FD4A1 /* Release */ = {
+		50D24A60C44DB7AF2A575D03CBB51BA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34D458DE815AB5331B608DE7DA2682B8 /* SQReorderableStackView.xcconfig */;
 			buildSettings = {
@@ -433,7 +459,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SQReorderableStackView/SQReorderableStackView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SQReorderableStackView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SQReorderableStackView/SQReorderableStackView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -447,47 +473,7 @@
 			};
 			name = Release;
 		};
-		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -523,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -531,9 +517,9 @@
 			};
 			name = Debug;
 		};
-		A8EC8DD8180FF0064264B582CCC9E4A9 /* Release */ = {
+		73A8070700CCB082E41478849C7A73F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C7420A31EA714D5FBD817D10A3892C9 /* Pods-SQReorderableStackView_Tests.release.xcconfig */;
+			baseConfigurationReference = B84E81BE1484F1B17047798C25585AE4 /* Pods-SQReorderableStackView_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -546,18 +532,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Pods-SQReorderableStackView_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Pods-SQReorderableStackView_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SQReorderableStackView_Tests;
+				PRODUCT_NAME = Pods_SQReorderableStackView_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,7 +552,7 @@
 			};
 			name = Release;
 		};
-		C843FD381D452B1F36D055479EFB1E58 /* Debug */ = {
+		B513D2105F06085816D9A3E1FFF906AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAC6D0E3AB9AFFC6C6F4975AB52B78DC /* Pods-SQReorderableStackView_Tests.debug.xcconfig */;
 			buildSettings = {
@@ -583,7 +569,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Tests/Pods-SQReorderableStackView_Tests.modulemap";
@@ -601,7 +587,47 @@
 			};
 			name = Debug;
 		};
-		D5670404C55F26904965022CA70B5C09 /* Debug */ = {
+		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C58C713CEB729A97FDEDC83DC697108F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34D458DE815AB5331B608DE7DA2682B8 /* SQReorderableStackView.xcconfig */;
 			buildSettings = {
@@ -619,49 +645,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SQReorderableStackView/SQReorderableStackView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SQReorderableStackView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SQReorderableStackView/SQReorderableStackView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SQReorderableStackView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F6964AA85BA34C78ACCE6E50631B41F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69B7FDCDC050881371E09ED2C1CBCBD7 /* Pods-SQReorderableStackView_Example.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SQReorderableStackView_Example/Pods-SQReorderableStackView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SQReorderableStackView_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -678,8 +666,8 @@
 		1868D302285805FE9E1AD19B32961A8D /* Build configuration list for PBXNativeTarget "Pods-SQReorderableStackView_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F6964AA85BA34C78ACCE6E50631B41F9 /* Debug */,
-				4303101141AEE00949528903432BB7D7 /* Release */,
+				11E5F535669586842760FC1C156EE4B6 /* Debug */,
+				73A8070700CCB082E41478849C7A73F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -687,8 +675,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
-				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
+				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
+				B7324857C38B065FEB1EEE3105C2367A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -696,8 +684,8 @@
 		49ADB4979022C36A9F10750A76A816EA /* Build configuration list for PBXNativeTarget "SQReorderableStackView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5670404C55F26904965022CA70B5C09 /* Debug */,
-				5D641D928E94BAF77F9A5E5EA50FD4A1 /* Release */,
+				C58C713CEB729A97FDEDC83DC697108F /* Debug */,
+				50D24A60C44DB7AF2A575D03CBB51BA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -705,8 +693,8 @@
 		67D940B9B0AC70488669CE467E4FF310 /* Build configuration list for PBXNativeTarget "Pods-SQReorderableStackView_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C843FD381D452B1F36D055479EFB1E58 /* Debug */,
-				A8EC8DD8180FF0064264B582CCC9E4A9 /* Release */,
+				B513D2105F06085816D9A3E1FFF906AE /* Debug */,
+				0756C29C24FAC565724FA4339FE1C7A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SQReorderableStackView: b0b1b877f9c75d8b191df506836a4c67b4c2f58f
+  SQReorderableStackView: 0a4bd245ae580f48429e071cf97f72f0cfb9e62f
 
 PODFILE CHECKSUM: 1f456c44c188a772893c875d65c81c3e0440f9c8
 

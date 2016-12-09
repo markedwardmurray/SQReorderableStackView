@@ -13,11 +13,11 @@ import UIKit
 @objc
 public protocol SQReorderableStackViewDelegate {
     
-    /// didBeginReordering - called when reordering begins
+    /// called when a subview is "picked up" by the user
     @objc optional func didBeginReordering()
     
     /// Whenever a user drags a subview for a reordering, the delegate is told whether the direction
-    /// was left or right, as well as what the max and min X or Y values are of the subview
+    /// was forward (left/down) or backward (right/up), as well as what the max and min X or Y values are of the subview
     @objc optional func didDragToReorder(inForwardDirection forward: Bool, maxPoint: CGPoint, minPoint: CGPoint)
     
     /// didReorderArrangedSubviews - called when reordering ends only if the selected subview's index changed during reordering
@@ -26,21 +26,26 @@ public protocol SQReorderableStackViewDelegate {
     /// didEndReordering - called when reordering ends
     @objc optional func didEndReordering()
     
+    /// called when reordering is cancelled
     @objc optional func didCancelReordering()
     
+    /// Tells the ReorderableStackView whether or not the pressed subview may be picked up.
     @objc optional func canReorderSubview(_ subview: UIView) -> Bool
     
+    /// Tells the ReorderableStackView whether or not the held subview can take the spot at which is being held.
     @objc optional func shouldAllowSubview(_ subview: UIView, toMoveToIndex index: Int) -> Bool
 }
 
 public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
-    var reorderingEnabled = false {
+    /// Whether or not the subviews can be picked and reordered.
+    public var reorderingEnabled = false {
         didSet {
             self.setReorderingEnabled(self.reorderingEnabled)
         }
     }
-    var reorderDelegate: SQReorderableStackViewDelegate?
+    /// The delegate for reordering.
+    public var reorderDelegate: SQReorderableStackViewDelegate?
     
     fileprivate var longPressGRS = [UILongPressGestureRecognizer]()
     
@@ -54,27 +59,35 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     fileprivate var startIndex: Int!
     fileprivate var endIndex: Int!
     
+    /// Whether or not to apply `clipsToBounds = true` to all of the subviews during reordering. Default is `false`
     public var clipsToBoundsWhileReordering = false
+    /// The cornerRadius to apply to subviews during reordering. clipsToBoundsWhileReordering must be `true`. Default is `0`
     public var cornerRadii: CGFloat = 0
+    /// The relative scale of the held view's snapshot during reordering to its subview's canonical size. Default is `1.1`
     public var temporaryViewScale: CGFloat = 1.1
+    /// The releative scale of the other subviews's size during reordering. Default is `0.95`
     public var otherViewsScale: CGFloat = 0.95
+    /// The alpha of the held view's snapshot curing reordering. Defaults is `0.9`
     public var temporaryViewAlpha: CGFloat = 0.9
-    /// The gap created once the long press drag is triggered
+    /// The gap created once the long press drag is triggered. Default is `5`
     public var dragHintSpacing: CGFloat = 5
+    /// The longPress duration for activating reordering. Default is `0.2` seconds
     public var longPressMinimumPressDuration = 0.2 {
         didSet {
             self.updateMinimumPressDuration()
         }
     }
     
+    /// Determines whether or not the axis is horizontal.
     public var isHorizontal: Bool {
         return self.axis == .horizontal
     }
+    /// Determines whether or not the axis is vertical.
     public var isVertical: Bool {
         return self.axis == .vertical
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)
         for arrangedSubview in self.arrangedSubviews {
             self.addLongPressGestureRecognizerForReorderingToView(arrangedSubview)
@@ -83,7 +96,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     // MARK:- Reordering Methods
     // ---------------------------------------------------------------------------------------------
-    override func addArrangedSubview(_ view: UIView) {
+    override public func addArrangedSubview(_ view: UIView) {
         super.addArrangedSubview(view)
         self.addLongPressGestureRecognizerForReorderingToView(view)
     }
@@ -320,7 +333,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         return self.arrangedSubviews[index + 1]
     }
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return !self.reordering
     }
     
