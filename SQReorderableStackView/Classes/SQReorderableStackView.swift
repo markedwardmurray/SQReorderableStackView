@@ -274,7 +274,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
                 // Hide the temporaryView, show the actualView
                 self.temporaryView.removeFromSuperview()
                 self.actualView.alpha = 1
-                self.clipsToBounds = !self.clipsToBoundsWhileReordering
+                self.clipsToBounds = false
         })
         
     }
