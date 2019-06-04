@@ -19,10 +19,10 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.horizontalStackView.reorderDelegate = self
-        self.verticalStackView.reorderDelegate = self
+        horizontalStackView.reorderDelegate = self
+        verticalStackView.reorderDelegate = self
         
-        self.updateLabelText()
+        updateLabelText()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +31,7 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
     }
     
     func stackView(_ stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool {
-        if (stackView == self.horizontalStackView) {
+        if stackView == horizontalStackView {
             if index == 2 {
                 return false
             }
@@ -40,7 +40,7 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
     }
 
     func stackView(_ stackView: SQReorderableStackView, shouldAllowSubview subview: UIView, toMoveToIndex index: Int) -> Bool {
-        if (stackView == self.horizontalStackView) {
+        if stackView == horizontalStackView {
             if index == 2 {
                 return false
             }
@@ -49,19 +49,19 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
     }
 
     func stackViewDidReorderArrangedSubviews(_ stackView: SQReorderableStackView) {
-        if stackView == self.verticalStackView {
-            self.updateLabelText()
+        if stackView == verticalStackView {
+            updateLabelText()
         }
     }
     
     func updateLabelText() {
         var text = ""
-        for label in self.verticalStackView.arrangedSubviews as! [UILabel] {
+        for label in verticalStackView.arrangedSubviews as! [UILabel] {
             text.append(label.text!)
             text.append(" ")
         }
         
-        self.label.text = text
+        label.text = text
     }
 }
 

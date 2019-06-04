@@ -41,9 +41,10 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     /// Whether or not the subviews can be picked and reordered.
     public var reorderingEnabled = true {
         didSet {
-            self.setReorderingEnabled(self.reorderingEnabled)
+            setReorderingEnabled(reorderingEnabled)
         }
     }
+    
     /// The delegate for reordering.
     public var reorderDelegate: SQReorderableStackViewDelegate?
     
@@ -61,30 +62,37 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     /// Whether or not to apply `clipsToBounds = true` to all of the subviews during reordering. Default is `false`
     public var clipsToBoundsWhileReordering = false
+    
     /// The cornerRadius to apply to subviews during reordering. clipsToBoundsWhileReordering must be `true`. Default is `0`
     public var cornerRadii: CGFloat = 0
+    
     /// The relative scale of the held view's snapshot during reordering to its subview's canonical size. Default is `1.1`
     public var temporaryViewScale: CGFloat = 1.1
+    
     /// The releative scale of the other subviews's size during reordering. Default is `0.95`
     public var otherViewsScale: CGFloat = 0.95
+    
     /// The alpha of the held view's snapshot curing reordering. Defaults is `0.9`
     public var temporaryViewAlpha: CGFloat = 0.9
+    
     /// The gap created once the long press drag is triggered. Default is `5`
     public var dragHintSpacing: CGFloat = 5
+    
     /// The longPress duration for activating reordering. Default is `0.2` seconds
     public var longPressMinimumPressDuration = 0.2 {
         didSet {
-            self.updateMinimumPressDuration()
+            updateMinimumPressDuration()
         }
     }
     
     /// Determines whether or not the axis is horizontal.
     public var isHorizontal: Bool {
-        return self.axis == .horizontal
+        return axis == .horizontal
     }
+    
     /// Determines whether or not the axis is vertical.
     public var isVertical: Bool {
-        return self.axis == .vertical
+        return axis == .vertical
     }
     
     public init() {
@@ -98,8 +106,8 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     }
     
     private func commonInit() {
-        for arrangedSubview in self.arrangedSubviews {
-            self.addLongPressGestureRecognizerForReorderingToView(arrangedSubview)
+        for arrangedSubview in arrangedSubviews {
+            addLongPressGestureRecognizerForReorderingToView(arrangedSubview)
         }
     }
     
@@ -107,89 +115,89 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     // ---------------------------------------------------------------------------------------------
     override public func addArrangedSubview(_ view: UIView) {
         super.addArrangedSubview(view)
-        self.addLongPressGestureRecognizerForReorderingToView(view)
+        addLongPressGestureRecognizerForReorderingToView(view)
     }
     
     fileprivate func addLongPressGestureRecognizerForReorderingToView(_ view: UIView) {
         let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGR.delegate = self
-        longPressGR.minimumPressDuration = self.longPressMinimumPressDuration
-        longPressGR.isEnabled = self.reorderingEnabled
+        longPressGR.minimumPressDuration = longPressMinimumPressDuration
+        longPressGR.isEnabled = reorderingEnabled
         view.addGestureRecognizer(longPressGR)
         
-        self.longPressGRS.append(longPressGR)
+        longPressGRS.append(longPressGR)
     }
     
     fileprivate func setReorderingEnabled(_ enabled: Bool) {
-        for longPressGR in self.longPressGRS {
+        for longPressGR in longPressGRS {
             longPressGR.isEnabled = enabled
         }
     }
     
     fileprivate func updateMinimumPressDuration() {
-        for longPressGR in self.longPressGRS {
-            longPressGR.minimumPressDuration = self.longPressMinimumPressDuration
+        for longPressGR in longPressGRS {
+            longPressGR.minimumPressDuration = longPressMinimumPressDuration
         }
     }
     
     @objc internal func handleLongPress(_ gr: UILongPressGestureRecognizer) {
         
         if gr.state == .began {
-            self.actualView = gr.view!
-            self.startIndex = self.indexOfArrangedSubview(self.actualView)
+            actualView = gr.view!
+            startIndex = indexOfArrangedSubview(actualView)
             
-            if let canReorder = self.reorderDelegate?.stackView?(self, canReorderSubview: self.actualView, atIndex: self.startIndex) {
+            if let canReorder = reorderDelegate?.stackView?(self, canReorderSubview: actualView, atIndex: startIndex) {
                 if (canReorder == false) {
-                    self.finalReorderFrame = self.actualView.frame;
+                    finalReorderFrame = actualView.frame;
                     gr.cancel()
                     return
                 }
             }
             
-            self.reordering = true
-            self.reorderDelegate?.stackViewDidBeginReordering?(self)
+            reordering = true
+            reorderDelegate?.stackViewDidBeginReordering?(self)
             
-            self.cornerRadii = actualView.layer.cornerRadius
-            self.originalPosition = gr.location(in: self)
-            if self.isHorizontal {
-                self.originalPosition.x -= self.dragHintSpacing
+            cornerRadii = actualView.layer.cornerRadius
+            originalPosition = gr.location(in: self)
+            if isHorizontal {
+                originalPosition.x -= dragHintSpacing
             } else {
-                self.originalPosition.y -= self.dragHintSpacing
+                originalPosition.y -= dragHintSpacing
             }
-            self.pointForReordering = self.originalPosition
-            self.prepareForReordering()
+            pointForReordering = originalPosition
+            prepareForReordering()
             
         } else if gr.state == .changed {
             
             // Drag the temporaryView
             let newLocation = gr.location(in: self)
-            let offset = self.isHorizontal ? newLocation.x - originalPosition.x : newLocation.y - originalPosition.y
-            let translation = self.isHorizontal ? CGAffineTransform(translationX: offset, y: 0) : CGAffineTransform(translationX: 0, y: offset)
-            let scale = CGAffineTransform(scaleX: self.temporaryViewScale, y: self.temporaryViewScale)
-            self.temporaryView.transform = scale.concatenating(translation)
+            let offset = isHorizontal ? newLocation.x - originalPosition.x : newLocation.y - originalPosition.y
+            let translation = isHorizontal ? CGAffineTransform(translationX: offset, y: 0) : CGAffineTransform(translationX: 0, y: offset)
+            let scale = CGAffineTransform(scaleX: temporaryViewScale, y: temporaryViewScale)
+            temporaryView.transform = scale.concatenating(translation)
             
-            let maxXorY = self.isHorizontal ? self.temporaryView.frame.maxX : self.temporaryView.frame.maxY
-            let midXorY = self.isHorizontal ? self.temporaryView.frame.midX : self.temporaryView.frame.midY
-            let minXorY = self.isHorizontal ? self.temporaryView.frame.minX : self.temporaryView.frame.minY
-            let index = self.indexOfArrangedSubview(self.actualView)
+            let maxXorY = isHorizontal ? temporaryView.frame.maxX : self.temporaryView.frame.maxY
+            let midXorY = isHorizontal ? temporaryView.frame.midX : self.temporaryView.frame.midY
+            let minXorY = isHorizontal ? temporaryView.frame.minX : self.temporaryView.frame.minY
+            let index = indexOfArrangedSubview(actualView)
             
-            let floatForReordering = self.isHorizontal ? self.pointForReordering.x : self.pointForReordering.y
-            let maxPoint = self.isHorizontal ? CGPoint(x: maxXorY, y: 0) : CGPoint(x: 0, y: maxXorY)
-            let minPoint = self.isHorizontal ? CGPoint(x: minXorY, y: 0) : CGPoint(x: 0, y: minXorY)
+            let floatForReordering = isHorizontal ? pointForReordering.x : pointForReordering.y
+            let maxPoint = isHorizontal ? CGPoint(x: maxXorY, y: 0) : CGPoint(x: 0, y: maxXorY)
+            let minPoint = isHorizontal ? CGPoint(x: minXorY, y: 0) : CGPoint(x: 0, y: minXorY)
             
             if midXorY > floatForReordering {
                 // Dragging the view left
                 let nextIndex = index + 1
-                if let moveAllowed = self.reorderDelegate?.stackView?(self, shouldAllowSubview: self.actualView, toMoveToIndex: nextIndex) {
-                    if (moveAllowed == false) {
+                if let moveAllowed = reorderDelegate?.stackView?(self, shouldAllowSubview: actualView, toMoveToIndex: nextIndex) {
+                    if !moveAllowed {
                         return
                     }
                 }
                 
-                self.reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: false, maxPoint: maxPoint, minPoint: minPoint)
+                reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: false, maxPoint: maxPoint, minPoint: minPoint)
                 
-                if let nextView = self.getNextViewInStack(usingIndex: index) {
-                    let nextViewFrameMidXorY = self.isHorizontal ? nextView.frame.midX : nextView.frame.midY
+                if let nextView = getNextViewInStack(usingIndex: index) {
+                    let nextViewFrameMidXorY = isHorizontal ? nextView.frame.midX : nextView.frame.midY
                     if midXorY > nextViewFrameMidXorY {
                         
                         // Swap the two arranged subviews
@@ -197,12 +205,12 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
                             self.insertArrangedSubview(nextView, at: index)
                             self.insertArrangedSubview(self.actualView, at: index + 1)
                         })
-                        self.finalReorderFrame = self.actualView.frame
+                        finalReorderFrame = actualView.frame
                         
-                        if self.isHorizontal {
-                            self.pointForReordering.x = self.actualView.frame.midX
+                        if isHorizontal {
+                            pointForReordering.x = actualView.frame.midX
                         } else {
-                            self.pointForReordering.y = self.actualView.frame.midY
+                            pointForReordering.y = actualView.frame.midY
                         }
                     }
                 }
@@ -210,16 +218,16 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             } else {
                 // Dragging the view right
                 let previousIndex = index - 1
-                if let moveAllowed = self.reorderDelegate?.stackView?(self, shouldAllowSubview: self.actualView, toMoveToIndex: previousIndex) {
-                    if (!moveAllowed) {
+                if let moveAllowed = reorderDelegate?.stackView?(self, shouldAllowSubview: actualView, toMoveToIndex: previousIndex) {
+                    if !moveAllowed {
                         return
                     }
                 }
                 
-                self.reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: true, maxPoint: maxPoint, minPoint: minPoint)
+                reorderDelegate?.stackView?(self, didDragToReorderInForwardDirection: true, maxPoint: maxPoint, minPoint: minPoint)
                 
-                if let previousView = self.getPreviousViewInStack(usingIndex: index) {
-                    let previousViewFrameMidXorY = self.isHorizontal ? previousView.frame.midX : previousView.frame.midY
+                if let previousView = getPreviousViewInStack(usingIndex: index) {
+                    let previousViewFrameMidXorY = isHorizontal ? previousView.frame.midX : previousView.frame.midY
                     if midXorY < previousViewFrameMidXorY {
                         
                         // Swap the two arranged subviews
@@ -227,12 +235,12 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
                             self.insertArrangedSubview(previousView, at: index)
                             self.insertArrangedSubview(self.actualView, at: index - 1)
                         })
-                        self.finalReorderFrame = self.actualView.frame
+                        finalReorderFrame = actualView.frame
                         
-                        if self.isHorizontal {
-                            self.pointForReordering.x = self.actualView.frame.midX
+                        if isHorizontal {
+                            pointForReordering.x = actualView.frame.midX
                         } else {
-                            self.pointForReordering.y = self.actualView.frame.midY
+                            pointForReordering.y = actualView.frame.midY
                         }
                     }
                 }
@@ -240,31 +248,31 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             
         } else if gr.state == .ended || gr.state == .failed {
             
-            self.cleanupUpAfterReordering()
-            self.reordering = false
-            self.endIndex = self.indexOfArrangedSubview(self.actualView)
-            if self.startIndex != self.endIndex {
-                self.reorderDelegate?.stackViewDidReorderArrangedSubviews?(self)
+            cleanupUpAfterReordering()
+            reordering = false
+            endIndex = indexOfArrangedSubview(actualView)
+            if startIndex != endIndex {
+                reorderDelegate?.stackViewDidReorderArrangedSubviews?(self)
             }
-            self.reorderDelegate?.stackViewDidEndReordering?(self)
+            reorderDelegate?.stackViewDidEndReordering?(self)
             
         } else if gr.state == .cancelled {
-            self.reorderDelegate?.stackViewDidCancelReordering?(self)
+            reorderDelegate?.stackViewDidCancelReordering?(self)
         }
         
     }
     
     fileprivate func prepareForReordering() {
         
-        self.clipsToBounds = self.clipsToBoundsWhileReordering
+        clipsToBounds = clipsToBoundsWhileReordering
         
         // Configure the temporary view
-        self.temporaryView = self.actualView.snapshotView(afterScreenUpdates: true)
-        self.temporaryView.frame = self.actualView.frame
-        self.finalReorderFrame = self.actualView.frame
-        self.addSubview(self.temporaryView)
+        temporaryView = actualView.snapshotView(afterScreenUpdates: true)
+        temporaryView.frame = actualView.frame
+        finalReorderFrame = actualView.frame
+        addSubview(temporaryView)
         
-        self.actualView.alpha = 0
+        actualView.alpha = 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
             
@@ -294,16 +302,16 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     fileprivate func styleViewsForReordering() {
         
-        let scale = CGAffineTransform(scaleX: self.temporaryViewScale, y: self.temporaryViewScale)
-        let translation = self.isHorizontal ? CGAffineTransform(translationX: 0, y: self.dragHintSpacing) : CGAffineTransform(translationX: self.dragHintSpacing, y: 0)
-        self.temporaryView.transform = scale.concatenating(translation)
-        self.temporaryView.alpha = self.temporaryViewAlpha
-        self.temporaryView.layer.cornerRadius = self.cornerRadii
-        self.temporaryView.clipsToBounds = true
+        let scale = CGAffineTransform(scaleX: temporaryViewScale, y: temporaryViewScale)
+        let translation = isHorizontal ? CGAffineTransform(translationX: 0, y: dragHintSpacing) : CGAffineTransform(translationX: dragHintSpacing, y: 0)
+        temporaryView.transform = scale.concatenating(translation)
+        temporaryView.alpha = temporaryViewAlpha
+        temporaryView.layer.cornerRadius = cornerRadii
+        temporaryView.clipsToBounds = true
         
-        for subview in self.arrangedSubviews {
-            if subview != self.actualView {
-                subview.transform = CGAffineTransform(scaleX: self.otherViewsScale, y: self.otherViewsScale)
+        for subview in arrangedSubviews {
+            if subview != actualView {
+                subview.transform = CGAffineTransform(scaleX: otherViewsScale, y: otherViewsScale)
             }
         }
     }
@@ -311,12 +319,12 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     fileprivate func styleViewsForEndReordering() {
         
         // Return drag view to original appearance
-        self.temporaryView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        self.temporaryView.frame = self.finalReorderFrame
-        self.temporaryView.alpha = 1.0
+        temporaryView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        temporaryView.frame = finalReorderFrame
+        temporaryView.alpha = 1.0
         
         // Return other arranged subviews to original appearances
-        for subview in self.arrangedSubviews {
+        for subview in arrangedSubviews {
             UIView.animate(withDuration: 0.3, animations: {
                 subview.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
@@ -328,7 +336,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     // ---------------------------------------------------------------------------------------------
     
     fileprivate func indexOfArrangedSubview(_ view: UIView) -> Int {
-        for (index, subview) in self.arrangedSubviews.enumerated() {
+        for (index, subview) in arrangedSubviews.enumerated() {
             if view == subview {
                 return index
             }
@@ -338,16 +346,16 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     fileprivate func getPreviousViewInStack(usingIndex index: Int) -> UIView? {
         if index == 0 { return nil }
-        return self.arrangedSubviews[index - 1]
+        return arrangedSubviews[index - 1]
     }
     
     fileprivate func getNextViewInStack(usingIndex index: Int) -> UIView? {
-        if index == self.arrangedSubviews.count - 1 { return nil }
-        return self.arrangedSubviews[index + 1]
+        if index == arrangedSubviews.count - 1 { return nil }
+        return arrangedSubviews[index + 1]
     }
     
     override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return !self.reordering
+        return !reordering
     }
     
 }
