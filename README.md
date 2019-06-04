@@ -12,7 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 * iOS 9.0 and later
-* Swift 3 only
+* Swift 4.2
 
 ## Installation
 
@@ -38,12 +38,6 @@ SQReorderableStackView
 
     /// The delegate for reordering.
     public var reorderDelegate: SQReorderableStackViewDelegate?
-
-	/// Whether or not to apply `clipsToBounds = true` to all of the subviews during reordering. Default is `false`
-    public var clipsToBoundsWhileReordering = false
-    
-    /// The cornerRadius to apply to subviews during reordering. clipsToBoundsWhileReordering must be `true`. Default is `0`
-    public var cornerRadii: CGFloat = 0
     
     /// The relative scale of the held view's snapshot during reordering to its subview's canonical size. Default is `1.1`
     public var temporaryViewScale: CGFloat = 1.1
