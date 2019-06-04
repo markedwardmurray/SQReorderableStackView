@@ -60,10 +60,14 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     fileprivate var startIndex: Int!
     fileprivate var endIndex: Int!
     
-    /// Whether or not to apply `clipsToBounds = true` to all of the subviews during reordering. Default is `false`
+    /// Whether or not to apply `clipsToBounds = true` to all of the subviews during reordering. Default is `false`.
+    /// The corner radii feature was no longer working and has been removed.
+    @available(*, deprecated)
     public var clipsToBoundsWhileReordering = false
     
     /// The cornerRadius to apply to subviews during reordering. clipsToBoundsWhileReordering must be `true`. Default is `0`
+    /// The corner radii feature was no longer working and has been removed.
+    @available(*, deprecated)
     public var cornerRadii: CGFloat = 0
     
     /// The relative scale of the held view's snapshot during reordering to its subview's canonical size. Default is `1.1`
@@ -160,7 +164,6 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             reordering = true
             reorderDelegate?.stackViewDidBeginReordering?(self)
             
-            cornerRadii = actualView.layer.cornerRadius
             originalPosition = gr.location(in: self)
             if isHorizontal {
                 originalPosition.x -= dragHintSpacing
@@ -265,8 +268,6 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     fileprivate func prepareForReordering() {
         
-        clipsToBounds = clipsToBoundsWhileReordering
-        
         // Configure the temporary view
         temporaryView = actualView.snapshotView(afterScreenUpdates: true)
         temporaryView.frame = actualView.frame
@@ -292,7 +293,6 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
                 // Hide the temporaryView, show the actualView
                 self.temporaryView.removeFromSuperview()
                 self.actualView.alpha = 1
-                self.clipsToBounds = !self.clipsToBoundsWhileReordering
         })
         
     }
@@ -305,8 +305,6 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         let translation = isHorizontal ? CGAffineTransform(translationX: 0, y: dragHintSpacing) : CGAffineTransform(translationX: dragHintSpacing, y: 0)
         temporaryView.transform = scale.concatenating(translation)
         temporaryView.alpha = temporaryViewAlpha
-        temporaryView.layer.cornerRadius = cornerRadii
-        temporaryView.clipsToBounds = true
         
         for subview in arrangedSubviews {
             if subview != actualView {
