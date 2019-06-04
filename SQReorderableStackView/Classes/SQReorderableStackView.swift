@@ -87,8 +87,17 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         return self.axis == .vertical
     }
     
+    public init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
     required public init(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         for arrangedSubview in self.arrangedSubviews {
             self.addLongPressGestureRecognizerForReorderingToView(arrangedSubview)
         }
