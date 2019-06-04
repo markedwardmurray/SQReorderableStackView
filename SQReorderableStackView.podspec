@@ -29,6 +29,7 @@ SQReorderableStackView is a UIViewSubclass updated for Swift 4.2 that adds a lon
   # s.social_media_url = 'https://twitter.com/markedwardnyc'
 
   s.ios.deployment_target = '9.0'
+  s.swift_version = "4.2"
 
   s.source_files = 'SQReorderableStackView/Classes/**/*'
   
