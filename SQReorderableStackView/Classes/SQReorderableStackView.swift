@@ -123,7 +123,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         }
     }
     
-    internal func handleLongPress(_ gr: UILongPressGestureRecognizer) {
+    @objc internal func handleLongPress(_ gr: UILongPressGestureRecognizer) {
         
         if gr.state == .began {
             self.actualView = gr.view!
