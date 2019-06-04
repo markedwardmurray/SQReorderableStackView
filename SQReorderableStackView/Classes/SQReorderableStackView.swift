@@ -112,7 +112,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     }
     
     // MARK:- Reordering Methods
-    // ---------------------------------------------------------------------------------------------
+
     override public func addArrangedSubview(_ view: UIView) {
         super.addArrangedSubview(view)
         addLongPressGestureRecognizerForReorderingToView(view)
@@ -142,7 +142,10 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     @objc internal func handleLongPress(_ gr: UILongPressGestureRecognizer) {
         
-        if gr.state == .began {
+        switch gr.state {
+        case .possible:
+            break
+        case .began:
             actualView = gr.view!
             startIndex = indexOfArrangedSubview(actualView)
             
@@ -167,8 +170,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             pointForReordering = originalPosition
             prepareForReordering()
             
-        } else if gr.state == .changed {
-            
+        case .changed:
             // Drag the temporaryView
             let newLocation = gr.location(in: self)
             let offset = isHorizontal ? newLocation.x - originalPosition.x : newLocation.y - originalPosition.y
@@ -246,7 +248,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
                 }
             }
             
-        } else if gr.state == .ended || gr.state == .failed {
+        case .ended, .failed:
             
             cleanupUpAfterReordering()
             reordering = false
@@ -256,10 +258,9 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             }
             reorderDelegate?.stackViewDidEndReordering?(self)
             
-        } else if gr.state == .cancelled {
+        case .cancelled:
             reorderDelegate?.stackViewDidCancelReordering?(self)
         }
-        
     }
     
     fileprivate func prepareForReordering() {
@@ -296,9 +297,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         
     }
     
-    
     // MARK:- View Styling Methods
-    // ---------------------------------------------------------------------------------------------
     
     fileprivate func styleViewsForReordering() {
         
@@ -331,9 +330,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
         }
     }
     
-    
     // MARK:- Stack View Helper Methods
-    // ---------------------------------------------------------------------------------------------
     
     fileprivate func indexOfArrangedSubview(_ view: UIView) -> Int {
         for (index, subview) in arrangedSubviews.enumerated() {
@@ -345,12 +342,12 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     }
     
     fileprivate func getPreviousViewInStack(usingIndex index: Int) -> UIView? {
-        if index == 0 { return nil }
+        guard index > 0 else { return nil }
         return arrangedSubviews[index - 1]
     }
     
     fileprivate func getNextViewInStack(usingIndex index: Int) -> UIView? {
-        if index == arrangedSubviews.count - 1 { return nil }
+        guard index != arrangedSubviews.count - 1 else { return nil }
         return arrangedSubviews[index + 1]
     }
     
