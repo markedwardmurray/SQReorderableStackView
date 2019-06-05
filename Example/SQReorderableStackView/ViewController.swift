@@ -24,11 +24,6 @@ class ViewController: UIViewController, SQReorderableStackViewDelegate {
         
         updateLabelText()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func stackView(_ stackView: SQReorderableStackView, canReorderSubview subview: UIView, atIndex index: Int) -> Bool {
         if stackView == horizontalStackView {

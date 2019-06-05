@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dml-gY-dk7">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Storyboard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SQReorderableStackView_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,14 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-Em-3Uw" customClass="SQReorderableStackView" customModule="SQReorderableStackView">
-                                <rect key="frame" x="16" y="40" width="343" height="114.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="124.5"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYj-q7-9sM">
-                                        <rect key="frame" x="0.0" y="3" width="109" height="109"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="119.5" height="119.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gYj-q7-9sM" secondAttribute="height" multiplier="1:1" id="S7r-hw-xXb"/>
@@ -36,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn2-cO-w8A">
-                                        <rect key="frame" x="117" y="3" width="109" height="109"/>
+                                        <rect key="frame" x="127.5" y="2.5" width="119" height="119.5"/>
                                         <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Wn2-cO-w8A" secondAttribute="height" multiplier="1:1" id="foT-Vp-PUK"/>
@@ -46,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E56-Cl-ujv">
-                                        <rect key="frame" x="234" y="3" width="109" height="109"/>
+                                        <rect key="frame" x="254.5" y="2.5" width="119.5" height="119.5"/>
                                         <color key="backgroundColor" red="1" green="0.87434989799999996" blue="0.95448760359999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E56-Cl-ujv" secondAttribute="height" multiplier="1:1" id="biG-du-5hm"/>
@@ -57,44 +56,42 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Wn2-cO-w8A" firstAttribute="width" secondItem="Wn2-cO-w8A" secondAttribute="height" multiplier="1:1" id="7SU-38-Fox"/>
-                                    <constraint firstItem="E56-Cl-ujv" firstAttribute="width" secondItem="E56-Cl-ujv" secondAttribute="height" multiplier="1:1" id="Zfh-IM-deX"/>
                                     <constraint firstAttribute="width" secondItem="xZK-Em-3Uw" secondAttribute="height" multiplier="3:1" id="kxc-dF-4P5"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aqh-0V-Wzx" customClass="SQReorderableStackView" customModule="SQReorderableStackView">
-                                <rect key="frame" x="16" y="234.5" width="343" height="187.5"/>
+                                <rect key="frame" x="20" y="268.5" width="374" height="299.5"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-Un-NyB">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ipsum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQX-Ea-Pf8">
-                                        <rect key="frame" x="0.0" y="42" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="20.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dolor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-8D-uRl">
-                                        <rect key="frame" x="0.0" y="83.5" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="139.5" width="374" height="20.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfo-ye-g2I">
-                                        <rect key="frame" x="0.0" y="125.5" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="209.5" width="374" height="20.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-Z4-Pp4">
-                                        <rect key="frame" x="0.0" y="167" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="279" width="374" height="20.5"/>
                                         <color key="backgroundColor" red="0.85481104620000004" green="0.94288407679999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -103,7 +100,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ru-5o-mCp">
-                                <rect key="frame" x="16" y="502" width="343" height="140"/>
+                                <rect key="frame" x="20" y="648" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="DpE-zV-5UK"/>
                                 </constraints>
@@ -126,6 +123,8 @@
                             <constraint firstItem="xZK-Em-3Uw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="yyx-QD-mBi"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Storyboard" id="Q8d-ea-fr5"/>
+                    <navigationItem key="navigationItem" id="8TU-NU-01f"/>
                     <connections>
                         <outlet property="horizontalStackView" destination="xZK-Em-3Uw" id="LfP-np-JNs"/>
                         <outlet property="label" destination="0ru-5o-mCp" id="zmP-sA-vVV"/>
@@ -134,7 +133,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="138.98050974512745"/>
+            <point key="canvasLocation" x="678" y="910"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oGd-ga-Aan">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Dml-gY-dk7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1YI-9n-MQK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="uTs-Xb-SbT"/>
+                        <segue destination="ERg-YH-5m1" kind="relationship" relationship="viewControllers" id="rkl-ly-Ixs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xe2-xz-ftn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="138.98050974512745"/>
+        </scene>
+        <!--Programmatic-->
+        <scene sceneID="1d0-V9-ffZ">
+            <objects>
+                <viewController id="ERg-YH-5m1" customClass="ProgrammaticViewController" customModule="SQReorderableStackView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g7T-Of-roy"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgp-OP-4ME"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8tv-79-Jsg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Programmatic" id="Lfr-T5-Sfl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41s-Dw-yAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="910"/>
         </scene>
     </scenes>
 </document>
