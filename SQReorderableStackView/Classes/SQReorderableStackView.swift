@@ -21,10 +21,10 @@ public protocol SQReorderableStackViewDelegate {
     @objc optional func stackView(_ stackView: SQReorderableStackView, didDragToReorderInForwardDirection forward: Bool, maxPoint: CGPoint, minPoint: CGPoint)
     
     /// didReorderArrangedSubviews - called when reordering ends only if the selected subview's index changed during reordering
-    @objc optional func stackViewDidReorderArrangedSubviews(_ stackView: SQReorderableStackView)
+    @objc optional func stackViewDidReorderArrangedSubviews(_ stackView: SQReorderableStackView, startIndex: Int, endIndex: Int)
     
     /// didEndReordering - called when reordering ends
-    @objc optional func stackViewDidEndReordering(_ stackView: SQReorderableStackView)
+    @objc optional func stackViewDidEndReordering(_ stackView: SQReorderableStackView, startIndex: Int, endIndex: Int)
     
     /// called when reordering is cancelled
     @objc optional func stackViewDidCancelReordering(_ stackView: SQReorderableStackView)
@@ -46,7 +46,7 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     }
     
     /// The delegate for reordering.
-    public var reorderDelegate: SQReorderableStackViewDelegate?
+    public weak var reorderDelegate: SQReorderableStackViewDelegate?
     
     fileprivate var longPressGRS = [UILongPressGestureRecognizer]()
     
@@ -257,9 +257,9 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
             reordering = false
             endIndex = indexOfArrangedSubview(actualView)
             if startIndex != endIndex {
-                reorderDelegate?.stackViewDidReorderArrangedSubviews?(self)
+                reorderDelegate?.stackViewDidReorderArrangedSubviews?(self, startIndex: startIndex, endIndex: endIndex)
             }
-            reorderDelegate?.stackViewDidEndReordering?(self)
+            reorderDelegate?.stackViewDidEndReordering?(self, startIndex: startIndex, endIndex: endIndex)
             
         case .cancelled:
             reorderDelegate?.stackViewDidCancelReordering?(self)
@@ -268,8 +268,22 @@ public class SQReorderableStackView: UIStackView, UIGestureRecognizerDelegate {
     
     fileprivate func prepareForReordering() {
         
+        //hide shadow
+        let didClip = actualView.clipsToBounds
+        actualView.clipsToBounds = true
+        
         // Configure the temporary view
         temporaryView = actualView.snapshotView(afterScreenUpdates: true)
+        
+        //reset actualView and copy shadow
+        actualView.clipsToBounds = didClip
+        temporaryView.layer.shadowRadius = actualView.layer.shadowRadius
+        temporaryView.layer.shadowPath = actualView.layer.shadowPath
+        temporaryView.layer.shadowColor = actualView.layer.shadowColor
+        temporaryView.layer.shadowOffset = actualView.layer.shadowOffset
+        temporaryView.layer.shadowOpacity = actualView.layer.shadowOpacity
+        temporaryView.layer.cornerRadius = actualView.layer.cornerRadius
+        
         temporaryView.frame = actualView.frame
         finalReorderFrame = actualView.frame
         addSubview(temporaryView)
